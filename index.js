@@ -7,6 +7,23 @@ const app = express()
 
 app.set('port', (process.env.PORT || 5000))
 
+
+app.post('/webhook/', function (req, res) {
+    let messaging_events = req.body.entry[0].messaging
+    for (let i = 0; i < messaging_events.length; i++) {
+        let event = req.body.entry[0].messaging[i]
+        let sender = event.sender.id
+        if (event.message && event.message.text) {
+            let text = event.message.text
+            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        }
+    }
+    res.sendStatus(200)
+})
+
+const token = "EAACmoXAvd7YBAD7IJFRICCuyLJdOeztOZCAngHMmccGoElu329P0CJQBzMPkCWd7SpQJknMzTwqpDsLLuaFdzHCwgj0Lhh22YZAFJK2psdoWSaN84L9vcjFtZCkHFOcgH5ZA8lKAPADBZBB4BJZCyVqcZBzaAeXFS12CZBzUZBBkSmgZDZD"
+
+
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}))
 
