@@ -22,7 +22,9 @@ app.post('/webhook/', function (req, res) {
 })
 
 
-const token = "EAACmoXAvd7YBACkpRp63cTyrIy7fRKVxGcI5KGvXVZAB4ZCGwqbBeD5Kwglla7Xje3gXRxgZB86ow5tjIsHnpC6rExlHZA4ESnXH3lvrXaslDSEUrLNnnvZBZCyBZCEzAwx0NUR9MZAUmMX4ZCxVHuremrnw3MK6M7rcEBlc2CSc5DAZDZD"
+const token = "EAACflY8WcQsBAJEXDpg8u4GY1oEhhePLBTAHSOCR0o39elSBX7urJGLKhef0ygv2ZBhNaLV9cZCrXIzJKaOz8gMlkA3NdNMQc82zB5OJ5ZALlIZApZAMnIjzbvruZBZACf9oZBd05raKGNxlOS1WvZANxhSsgfDxZBuFWTqQwJcgTrLAZDZD"
+
+
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
